@@ -1,0 +1,28 @@
+# Arduino IDE and Arduino Uno project
+# Keep source files such as .ino, .h, and .cpp in Git.
+
+# Generated build directories
+build/
+.build/
+out/
+
+# Compiled firmware and intermediate files
+*.hex
+*.elf
+*.eep
+*.bin
+*.map
+*.o
+*.a
+*.d
+
+# Temporary and backup files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Operating system files
+Thumbs.db
+.DS_Store
+Desktop.ini
