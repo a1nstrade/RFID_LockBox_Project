@@ -1,13 +1,29 @@
+// ==================================================
+// MAIN PROGRAM
+// Coordinates the LCD, RFID reader, and servo lock.
+// ==================================================
+
 void setup() {
-  // put your setup code here, to run once:
+  // LCD setup
+  setupLCD();
+
+  // RFID reader setup
+
+
+  // Servo motor setup
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  // Detect RFID card
+
+
+  // Check card authorization
+
+
+  // Display result on LCD
+
+
+  // Lock or unlock servo
 
 }
-this is a change ian made
-
-this is the change alejandro made
-yo what suyp 
