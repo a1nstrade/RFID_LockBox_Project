@@ -1,30 +1,53 @@
-// ==================================================
-// MAIN PROGRAM
-// Coordinates the LCD, RFID reader, and servo lock.
-// ==================================================
 
+#include <SPI.h>
+#include <MFRC522.h>
+
+// RFID reader pins
+#define SS_PIN 10
+#define RST_PIN 9
+
+// Create MFRC522 object
 void setup() {
-  // LCD setup
-  setupLCD();
 
-  // RFID reader setup
+  Serial.begin(9600);
 
+  SPI.begin();
+  rfid.PCD_Init();
 
-  // Servo motor setup
-
+  Serial.println("RFID Reader Ready!");
+  Serial.println("Scan your card or tag...");
 }
 
 void loop() {
-  // Detect RFID card
 
+  // Check if a new card is present
+  if (!rfid.PICC_IsNewCardPresent()) {
+    return;
+  }
 
-  // Check card authorization
+  // Read the card UID
+  if (!rfid.PICC_ReadCardSerial()) {
+    return;
+  }
 
+  Serial.print("Scanned UID: ");
 
-  // Display result on LCD
+  // Print every byte of the UID
+  for (byte i = 0; i < rfid.uid.size; i++) {
 
+    if (rfid.uid.uidByte[i] < 0x10) {
+      Serial.print("0");
+    }
 
-  // Lock or unlock servo
+    Serial.print(rfid.uid.uidByte[i], HEX);
+    Serial.print(" ");
+  }
 
+  Serial.println();
+
+  // Finish communication with the card
+  rfid.PICC_HaltA();
+  rfid.PCD_StopCrypto1();
+
+  delay(500);
 }
-TESTING B/C OF NEW PROJECT NAME

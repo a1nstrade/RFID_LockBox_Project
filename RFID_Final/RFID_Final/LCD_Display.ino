@@ -10,7 +10,7 @@
 
 LiquidCrystal lcd(8, 11, 4, 5, 6, 7);
 
-void setup() {
+void setupLCD() {
   lcd.begin(16, 2);
 
   lcd.setCursor(0, 0);
@@ -20,5 +20,5 @@ void setup() {
   lcd.print("Scan Your Card");
 }
 
-void loop() {
+void updateLCD() {
 }
