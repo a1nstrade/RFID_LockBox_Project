@@ -6,7 +6,7 @@
 
 // RS = 1, E = 2, D4 = 4, D5 = 5, D6 = 6, D7 = 7
 LiquidCrystal lcd(1, 2, 4, 5, 6, 7);
-
+hello there
 void setupLCD() {
   // Initialize the LCD (16 columns, 2 rows)
   lcd.begin(16, 2);
